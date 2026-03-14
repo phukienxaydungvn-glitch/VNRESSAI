@@ -1,0 +1,21 @@
+{
+  "index_patterns": ["trend-radar-*"],
+  "template": {
+    "settings": {
+      "number_of_shards": 1,
+      "number_of_replicas": 0
+    },
+    "mappings": {
+      "properties": {
+        "project_id": { "type": "keyword" },
+        "source": { "type": "keyword" },
+        "topic": { "type": "text" },
+        "content": { "type": "text" },
+        "hashtags": { "type": "keyword" },
+        "captured_at": { "type": "date" },
+        "trend_score": { "type": "float" },
+        "viral_score": { "type": "float" }
+      }
+    }
+  }
+}

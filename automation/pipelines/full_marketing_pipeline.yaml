@@ -1,0 +1,20 @@
+name: full_marketing_pipeline
+stages:
+  - id: scan_trend
+    service: crawler
+    action: crawl_trends
+  - id: discover_keywords
+    service: fastapi
+    action: keywords.discover
+  - id: generate_content
+    service: ai_engine
+    action: content.generate
+  - id: create_image_prompt
+    service: ai_engine
+    action: image.prompt
+  - id: export_assets
+    service: orchestrator
+    action: campaign.export
+schedule:
+  cron: "0 */4 * * *"
+  timezone: "Asia/Ho_Chi_Minh"
